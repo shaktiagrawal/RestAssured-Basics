@@ -13,18 +13,18 @@ public class TestRunner {
 	public void Test() {
 		RestAssured.baseURI = "https://reqres.in/";
 		RequestSpecification request = RestAssured.given();
-		
+
 		given().
 		param("page", "2").
 		when().get("api/users").then().assertThat().statusCode(200);
-		
-		
+
+
 		String status = given().
 				param("page", "2").
 				when().get("api/users").body().asString();
 		System.out.println(status);
 
-		
+//Post Request	
 		JSONObject requestParam = new JSONObject();
 		requestParam.put("name", "Shakt");
 		requestParam.put("Job", "MD");
@@ -36,5 +36,3 @@ public class TestRunner {
 
 	}
 }
-
-
